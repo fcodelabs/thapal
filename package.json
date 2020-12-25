@@ -10,7 +10,22 @@
     "lib": "lib"
   },
   "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:staged": "lint-staged",
     "test": "mocha"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:fix",
+      "git add --force"
+    ]
   },
   "repository": {
     "type": "git",
@@ -30,5 +45,13 @@
   "bugs": {
     "url": "https://github.com/fcodelabs/p2o/issues"
   },
-  "homepage": "https://github.com/fcodelabs/p2o#readme"
+  "homepage": "https://github.com/fcodelabs/p2o#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "eslint": "^7.16.0",
+    "eslint-config-google": "^0.14.0",
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3"
+  }
 }
