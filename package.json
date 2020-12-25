@@ -4,10 +4,10 @@
   "description": "Convert postman collection json to OpenAPI yaml documents",
   "main": "./src/index.js",
   "bin": {
-    "p2o": "./lib/index.js"
+    "p2o": "./src/index.js"
   },
   "directories": {
-    "lib": "lib"
+    "lib": "src"
   },
   "scripts": {
     "lint": "eslint .",
