@@ -7,7 +7,7 @@ const findVariable = (variables, name) => {
 
 const getCollectionSchema = ({info: {schema}}) => {
   const regex = '(?<=collection/v)[.0-9]+(?=/collection)';
-  return schema.match(regex);
+  return schema?.match(regex)?.[0];
 };
 
 const getInfo = ({info: {name, description}, variable}) => ({
@@ -35,7 +35,7 @@ const getServers = ({variable}) => {
   return {
     servers: servers.map(({key, value}) => ({
       url: value,
-      description: key,
+      description: key.substr(7).trim(),
     })),
   };
 };

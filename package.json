@@ -13,7 +13,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:staged": "lint-staged",
-    "test": "mocha \"src/**/*.test.ts\" --recursive --reporter spec",
+    "test": "mocha \"src/**/*.test.js\" --recursive --reporter spec",
     "coverage": "nyc -r lcov -e .js -x \"*.test.js\" npm run test"
   },
   "husky": {
