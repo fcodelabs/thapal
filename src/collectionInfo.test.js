@@ -1,5 +1,5 @@
 const {
-  getCollectionSchema, getServers, getExternalDocs,
+  getCollectionSchema, getServers, getExternalDocs, getInfo,
 } = require('./collectionInfo');
 const {expect} = require('chai');
 
@@ -24,12 +24,12 @@ describe('Test Collection Parser', () => {
         'value': 'hello@fcodelabs.com',
       },
       {
-        'key': 'licence.name',
-        'value': 'The licence',
+        'key': 'license.name',
+        'value': 'The license',
       },
       {
-        'key': 'licence.url',
-        'value': 'https://licence.com',
+        'key': 'license.url',
+        'value': 'https://license.com',
       },
       {
         'key': 'version',
@@ -51,6 +51,10 @@ describe('Test Collection Parser', () => {
         'key': 'externalDocs.url',
         'value': 'https://docs.com',
       },
+      {
+        'key': 'termsOfService',
+        'value': 'https://temsnservice.com',
+      },
     ],
   };
   const openapi = {
@@ -63,9 +67,10 @@ describe('Test Collection Parser', () => {
         email: 'hello@fcodelabs.com',
       },
       license: {
-        name: 'The licence',
-        url: 'https://licence.com',
+        name: 'The license',
+        url: 'https://license.com',
       },
+      termsOfService: 'https://temsnservice.com',
       version: '1.0.0',
     },
     externalDocs: {
@@ -127,6 +132,18 @@ describe('Test Collection Parser', () => {
     it('Check extracted docs', () => {
       const actual = getExternalDocs(collection);
       expect(actual?.externalDocs).deep.equal(openapi.externalDocs);
+    });
+  });
+
+  describe('Test getInfo', () => {
+    it('Test with null data', () => {
+      const actual = getInfo({info: {}});
+      expect(actual).deep.equal({});
+    });
+
+    it('Check information', () => {
+      const actual = getInfo(collection);
+      expect(actual?.info).deep.equal(openapi.info);
     });
   });
 });

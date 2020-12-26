@@ -5,28 +5,40 @@ const findVariable = (variables, name) => {
   return variable?.value;
 };
 
+const clean = (obj) => {
+  Object.keys(obj).forEach(
+      (key) => (obj[key] === undefined ||
+          Object.entries(obj[key]).length === 0) &&
+          delete obj[key],
+  );
+  return obj;
+};
+
 const getCollectionSchema = ({info: {schema}}) => {
   const regex = '(?<=collection/v)[.0-9]+(?=/collection)';
   return schema?.match(regex)?.[0];
 };
 
-const getInfo = ({info: {name, description}, variable}) => ({
-  info: {
+const getInfo = ({info: {name, description}, variable}) => {
+  const contact = clean({
+    name: findVariable(variable, 'contact.name'),
+    url: findVariable(variable, 'contact.url'),
+    email: findVariable(variable, 'contact.email'),
+  });
+  const license = clean({
+    name: findVariable(variable, 'license.name'),
+    url: findVariable(variable, 'license.url'),
+  });
+  const info = clean({
     title: name,
     description,
+    contact,
     termsOfService: findVariable(variable, 'termsOfService'),
-    contact: {
-      name: findVariable(variable, 'contact.name'),
-      url: findVariable(variable, 'contact.url'),
-      email: findVariable(variable, 'contact.email'),
-    },
-    licence: {
-      name: findVariable(variable, 'licence.name'),
-      url: findVariable(variable, 'licence.url'),
-    },
+    license,
     version: findVariable(variable, 'version'),
-  },
-});
+  });
+  return clean({info});
+};
 
 const getServers = ({variable}) => {
   const serverVars = variable?.filter(
@@ -36,7 +48,7 @@ const getServers = ({variable}) => {
     url: value,
     description: key.substr(7).trim(),
   }));
-  return servers ? {servers} : {};
+  return clean({servers});
 };
 
 const getExternalDocs = ({variable}) => {
