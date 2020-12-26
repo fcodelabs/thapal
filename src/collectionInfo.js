@@ -29,23 +29,21 @@ const getInfo = ({info: {name, description}, variable}) => ({
 });
 
 const getServers = ({variable}) => {
-  const servers = variable.filter(
+  const serverVars = variable?.filter(
       ({key}) => key.toLowerCase()?.startsWith('server:'),
   );
-  return {
-    servers: servers.map(({key, value}) => ({
-      url: value,
-      description: key.substr(7).trim(),
-    })),
-  };
+  const servers = serverVars?.map(({key, value}) => ({
+    url: value,
+    description: key.substr(7).trim(),
+  }));
+  return servers ? {servers} : {};
 };
 
-const getExternalDocs = ({variable}) => ({
-  externalDocs: {
-    url: findVariable(variable, 'externalDocs.url'),
-    description: findVariable(variable, 'externalDocs.description'),
-  },
-});
+const getExternalDocs = ({variable}) => {
+  const url = findVariable(variable, 'externalDocs.url');
+  const description = findVariable(variable, 'externalDocs.description');
+  return url || description ? {externalDocs: {url, description}} : {};
+};
 
 exports.getCollectionSchema = getCollectionSchema;
 exports.getInfo = getInfo;
