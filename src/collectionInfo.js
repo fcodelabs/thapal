@@ -1,17 +1,10 @@
+const {clean} = require('./util/validation');
+
 const findVariable = (variables, name) => {
   const variable = variables?.find(
-      ({key}) => key ? key.toLowerCase() === name.toLowerCase() : false,
+      ({key}) => key.toLowerCase() === name.toLowerCase(),
   );
   return variable?.value;
-};
-
-const clean = (obj) => {
-  Object.keys(obj).forEach(
-      (key) => (obj[key] === undefined ||
-          Object.entries(obj[key]).length === 0) &&
-          delete obj[key],
-  );
-  return obj;
 };
 
 const getCollectionSchema = ({info: {schema}}) => {
