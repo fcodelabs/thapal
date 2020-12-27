@@ -54,4 +54,5 @@ exports.getCollectionSchema = getCollectionSchema;
 exports.getInfo = getInfo;
 exports.getServers = getServers;
 exports.getExternalDocs = getExternalDocs;
+exports.findVariable = findVariable;
 

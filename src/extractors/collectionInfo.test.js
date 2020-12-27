@@ -3,7 +3,7 @@ const {
 } = require('./collectionInfo');
 const {expect} = require('chai');
 
-describe('Test Collection Parser', () => {
+describe('Test Collection Info Parser', () => {
   const collection = {
     'info': {
       '_postman_id': '1d1e2bcf-9352-4713-be7e-c0f9da9b16d4',
