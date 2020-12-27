@@ -1,10 +1,10 @@
 {
-  "name": "p2o",
+  "name": "@fcodelabs/thapal",
   "version": "0.0.1",
   "description": "Convert postman collection json to OpenAPI yaml documents",
   "main": "./src/index.js",
   "bin": {
-    "p2o": "./src/index.js"
+    "thapal": "./src/index.js"
   },
   "directories": {
     "lib": "src"
@@ -30,23 +30,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fcodelabs/p2o.git"
+    "url": "git+https://github.com/fcodelabs/thapal.git"
   },
   "keywords": [
     "p2o",
+    "thapal",
     "postman",
     "openapi",
+    "swagger",
     "nodejs",
     "convert",
     "transform",
-    "cli"
+    "cli",
+    "postman2openapi",
+    "post2open"
   ],
   "author": "Fcode Labs",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fcodelabs/p2o/issues"
+    "url": "https://github.com/fcodelabs/thapal/issues"
   },
-  "homepage": "https://github.com/fcodelabs/p2o#readme",
+  "homepage": "https://github.com/fcodelabs/thapal#readme",
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
