@@ -1,0 +1,15 @@
+openapi: 3.0.3
+info:
+  title: Global Bearer Token Auth
+  description: This collection has a test global bearer token auth
+  version: 1.0.0
+security:
+  - BearerAuth: [ ]
+paths:
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: TOKEN
+      description: This is the basic auth description

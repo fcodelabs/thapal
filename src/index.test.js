@@ -3,7 +3,10 @@ const {expect} = require('chai');
 const {safeLoad} = require('js-yaml');
 const fs = require('fs');
 
-const testTypes = ['Test Info'];
+const testTypes = [
+  'Test Info', 'Global Basic Auth', 'Global Bearer Token Auth',
+  'Global API Key Auth',
+];
 
 const readOpenApi = (testType) => {
   const text = fs.readFileSync(

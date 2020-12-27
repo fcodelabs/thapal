@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "75cf3cf4-9225-465d-8c1d-57e366c85a93",
+		"name": "Global Bearer Token Auth",
+		"description": "This collection has a test global bearer token auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "BEARER_TOKEN"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "authDescription",
+			"value": "This is the basic auth description"
+		}
+	]
+}

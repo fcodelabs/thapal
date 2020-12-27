@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "d9c31e29-06f5-4506-a2be-96a59401595f",
+		"name": "Global API Key Auth",
+		"description": "This collection has a test global api key auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [],
+	"auth": {
+		"type": "apikey",
+		"apikey": {
+			"in": "header",
+			"value": "keyvalue",
+			"key": "somekey"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "authDescription",
+			"value": "This is the basic auth description"
+		}
+	]
+}

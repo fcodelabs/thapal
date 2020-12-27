@@ -138,7 +138,7 @@ describe('Test Collection Info Parser', () => {
   describe('Test getInfo', () => {
     it('Test with null data', () => {
       const actual = getInfo({info: {}});
-      expect(actual).deep.equal({});
+      expect(actual).deep.equal({info: {version: '1.0.0'}});
     });
 
     it('Check information', () => {

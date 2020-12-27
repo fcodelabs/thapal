@@ -1,0 +1,15 @@
+openapi: 3.0.3
+info:
+  title: Global API Key Auth
+  description: This collection has a test global api key auth
+  version: 1.0.0
+security:
+  - ApiKeyAuth: [ ]
+paths:
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: somekey
+      description: This is the basic auth description

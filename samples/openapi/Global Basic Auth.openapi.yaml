@@ -1,0 +1,14 @@
+openapi: 3.0.3
+info:
+  title: Global Basic Auth
+  description: This collection has a test global basic auth
+  version: 1.0.0
+security:
+  - BasicAuth: [ ]
+paths:
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: This is the basic auth description

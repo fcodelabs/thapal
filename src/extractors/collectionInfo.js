@@ -28,7 +28,7 @@ const getInfo = ({info: {name, description}, variable}) => {
     contact,
     termsOfService: findVariable(variable, 'termsOfService'),
     license,
-    version: findVariable(variable, 'version'),
+    version: findVariable(variable, 'version') ?? '1.0.0',
   });
   return clean({info});
 };

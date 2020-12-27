@@ -1,0 +1,30 @@
+{
+	"info": {
+		"_postman_id": "58ec7a69-11b8-4056-9fd4-6e6737e32f73",
+		"name": "Global Basic Auth",
+		"description": "This collection has a test global basic auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "hello123",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "hello@fcodelabs.com",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "authDescription",
+			"value": "This is the basic auth description"
+		}
+	]
+}
