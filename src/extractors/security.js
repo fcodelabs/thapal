@@ -28,13 +28,26 @@ const getApiKeyAuth = (authData, description, schema) => {
   return {ApiKeyAuth: clean(auth)};
 };
 
+const getBearerTokenAuth = (description) => ({
+  BearerAuth: clean({
+    type: 'http',
+    scheme: 'bearer',
+    bearerFormat: 'TOKEN',
+    description,
+  }),
+});
+
 const getAuth = ({auth, variable}, schema) => {
   const description = findVariable(variable, 'authDescription');
   if (auth?.type === 'basic') {
     return getBasicAuth(description);
-  } else if (auth?.type === 'apikey') {
+  }
+  if (auth?.type === 'apikey') {
     const authData = auth['apikey'];
     return getApiKeyAuth(authData, description, schema);
+  }
+  if (auth?.type === 'bearer') {
+    return getBearerTokenAuth(description);
   }
   return {};
 };

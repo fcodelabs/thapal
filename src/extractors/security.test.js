@@ -49,4 +49,7 @@ describe('Test collection security parser', () => {
 
   describe('Check API key authentication', () => {
   });
+
+  describe('Check Bearer token authentication', () => {
+  });
 });
