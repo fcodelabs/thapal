@@ -2,7 +2,11 @@
 
 const {safeDump} = require('js-yaml');
 const fs = require('fs');
-const {getInfo, getServers, getExternalDocs} = require('./collectionInfo');
+const {
+  getInfo,
+  getServers,
+  getExternalDocs,
+} = require('./extractors/collectionInfo');
 
 const SUPPORTED = [
   {
@@ -28,9 +32,6 @@ const p2o = (collectionPath, options = {}) => {
   };
   return safeDump(openAPI, {skipInvalid: true});
 };
-
-const val = p2o('./res/collection/v2.1/Test Info.postman_collection.json');
-console.log(val);
 
 exports.p2o = p2o;
 exports.SUPPORTED = SUPPORTED;

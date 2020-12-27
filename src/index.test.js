@@ -7,13 +7,13 @@ const testTypes = ['Test Info'];
 
 const readOpenApi = (testType) => {
   const text = fs.readFileSync(
-      `./res/openapi/${testType}.openapi.yaml`,
+      `./samples/openapi/${testType}.openapi.yaml`,
       'utf8',
   );
   return safeLoad(text);
 };
 
-const getCollection = (testType, dir) => `./res/collection/${dir}/` +
+const getCollection = (testType, dir) => `./samples/collection/${dir}/` +
     `${testType}.postman_collection.json`;
 
 describe('Test p2o with real life examples', () => {

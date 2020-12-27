@@ -1,4 +1,4 @@
-const {clean} = require('./util/validation');
+const {clean} = require('../util/validation');
 
 const findVariable = (variables, name) => {
   const variable = variables?.find(
