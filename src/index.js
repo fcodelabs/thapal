@@ -1,11 +1,22 @@
 #!/usr/bin/env node
 
 const {safeDump} = require('js-yaml');
-const {readFile} = require('lint-staged');
+const fs = require('fs');
 const {getInfo, getServers, getExternalDocs} = require('./collectionInfo');
 
-const p2o = async (collectionPath, options = {}) => {
-  const collectionFile = await readFile(collectionPath);
+const SUPPORTED = [
+  {
+    schema: '2.0.0',
+    dir: 'v2',
+  },
+  {
+    schema: '2.1.0',
+    dir: 'v2.1',
+  },
+];
+
+const p2o = (collectionPath, options = {}) => {
+  const collectionFile = fs.readFileSync(collectionPath, 'utf8');
   const postmanJson = JSON.parse(collectionFile);
   const openAPI = {
     ...getInfo(postmanJson),
@@ -13,6 +24,7 @@ const p2o = async (collectionPath, options = {}) => {
     ...getServers(postmanJson),
     ...options,
     openapi: '3.0.3',
+    paths: null,
   };
   return safeDump(openAPI, {skipInvalid: true});
 };
@@ -20,5 +32,6 @@ const p2o = async (collectionPath, options = {}) => {
 const val = p2o('./res/collection/v2.1/Test Info.postman_collection.json');
 console.log(val);
 
-module.exports = p2o;
+exports.p2o = p2o;
+exports.SUPPORTED = SUPPORTED;
 

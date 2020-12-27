@@ -1,0 +1,22 @@
+openapi: 3.0.3
+info:
+  title: Test Info
+  description: This collection is for testing openAPI information on collection
+  contact:
+    name: Fcode Labs
+    email: hello@fcodelabs.com
+  termsOfService: 'https://temsnservice.com'
+  license:
+    name: The license
+    url: 'https://license.com'
+  version: 1.0.0
+externalDocs:
+  url: 'https://docs.com'
+  description: The external documentation
+servers:
+  - url: 'https://dev.server.com/api'
+    description: Dev Server
+  - url: 'https://prod.server.com/api'
+    description: Prod Server
+paths:
+

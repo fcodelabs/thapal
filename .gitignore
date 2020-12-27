@@ -9,5 +9,6 @@ node_modules
 .env
 .env.test
 
-# IDE
 .idea
+coverage
+.nyc_output
