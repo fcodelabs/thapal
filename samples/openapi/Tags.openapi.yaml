@@ -1,0 +1,11 @@
+openapi: 3.0.3
+info:
+  title: Tags
+  description: This collection is to test tags with folders
+  version: 1.0.0
+tags:
+  - name: Upper
+    description: This tag is called upper
+  - name: Lower
+    description: This tag is called lower
+paths:

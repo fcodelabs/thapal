@@ -1,0 +1,20 @@
+{
+  "info": {
+    "_postman_id": "bbd37720-1d2c-4c4c-ba3f-7f3e3ebebf07",
+    "name": "Tags",
+    "description": "This collection is to test tags with folders",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Upper",
+      "item": [],
+      "description": "This tag is called upper"
+    },
+    {
+      "name": "Lower",
+      "item": [],
+      "description": "This tag is called lower"
+    }
+  ]
+}

@@ -10,6 +10,7 @@ const {
 } = require('./extractors/collectionInfo');
 const {clean} = require('./util/validation');
 const {getAuth} = require('./extractors/security');
+const {getTags} = require('./extractors/path');
 
 const SUPPORTED = [
   {
@@ -40,13 +41,12 @@ const p2o = (collectionPath, options = {}) => {
     security = [{[authKeys[0]]: []}];
     components.components['securitySchemes'] = auth;
   }
-  const tags = undefined;
 
   const openAPI = {
     openapi: '3.0.3',
     ...apiMeta,
     security,
-    tags,
+    ...getTags(postmanJson),
     paths: null,
     ...clean(components),
   };
