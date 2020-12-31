@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const testTypes = [
   'Test Info', 'Global Basic Auth', 'Global Bearer Token Auth',
-  'Global API Key Auth', 'Tags',
+  'Global API Key Auth', 'Tags', 'Simple Get',
 ];
 
 const readOpenApi = (testType) => {

@@ -1,0 +1,30 @@
+openapi: 3.0.3
+info:
+  title: Simple Get
+  description: This collection is has simple get requests in folders
+  version: 1.0.0
+servers:
+  - url: 'https://localhost:8080/api'
+    description: Dev
+tags:
+  - name: Upper
+    description: This tag is called upper
+  - name: Lower
+    description: This tag is called lower
+paths:
+  /users/{id}/groups:
+    get:
+      summary: Get All Groups
+      description: Get all the meta data in the system
+      responses:
+        '200':
+          description: OK response
+  /users:
+    get:
+      tags:
+        - Upper
+      summary: Get All Users
+      description: Get all the users in the system
+      responses:
+        '200':
+          description: OK response

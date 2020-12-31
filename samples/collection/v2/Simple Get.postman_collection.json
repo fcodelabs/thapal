@@ -1,0 +1,83 @@
+{
+  "info": {
+    "_postman_id": "8227e0eb-cd81-48a3-84da-f1f44eb7c593",
+    "name": "Simple Get",
+    "description": "This collection is has simple get requests in folders",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Upper",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{server:Dev}}/users",
+            "description": "Get all the users in the system"
+          },
+          "response": []
+        }
+      ],
+      "description": "This tag is called upper"
+    },
+    {
+      "name": "Lower",
+      "item": [],
+      "description": "This tag is called lower"
+    },
+    {
+      "name": "Get All Groups",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{server:Dev}}/users/:id/groups",
+          "host": [
+            "{{server:Dev}}"
+          ],
+          "path": [
+            "users",
+            ":id",
+            "groups"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": ""
+            }
+          ]
+        },
+        "description": "Get all the meta data in the system"
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "server:Dev",
+      "value": "https://localhost:8080/api"
+    }
+  ]
+}

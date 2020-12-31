@@ -10,7 +10,7 @@ const {
 } = require('./extractors/collectionInfo');
 const {clean} = require('./util/validation');
 const {getAuth} = require('./extractors/security');
-const {getTags} = require('./extractors/path');
+const {getTags, extractAndCombinePaths} = require('./extractors/path');
 
 const SUPPORTED = [
   {
@@ -47,7 +47,7 @@ const p2o = (collectionPath, options = {}) => {
     ...apiMeta,
     security,
     ...getTags(postmanJson),
-    paths: null,
+    ...extractAndCombinePaths(postmanJson),
     ...clean(components),
   };
   const a = safeDump(openAPI, {skipInvalid: true});
